@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import * as path from "path";
-require("dotenv").config();
+import "dotenv/config";
 
 const bearer = "Bearer " + process.env.ADMIN_TOKEN;
 
@@ -10,10 +10,10 @@ async function fetchApi(path: string, method = "GET") {
 
     const option = {
         headers: {
-            'Authorization': bearer,
+            "Authorization": bearer,
         },
         method: method
-    }
+    };
 
     const response = await fetch(endpoint, option);
 
