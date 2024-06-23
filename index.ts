@@ -122,6 +122,12 @@ app.get("/api/url/whitelist/:id", async (req: Request, res: Response) => {
             title: "2a5 Admin - Whitelist Error",
             hostname: responseJson.hostname
         });
+    } else if (responseJson.message == "error - blacklisted already") {
+        // this is the case, that the hostname is blacklisted already
+        res.render("blacklist-error-blacklisted-already", {
+            title: "2a5 Admin - blacklist Error",
+            hostname: responseJson.hostname
+        });
     } else if (responseJson.message == "error - deleted URLs") {
         res.render("whitelist-error-urls-deleted", {
             title: "2a5 Admin - Whitelist Error",
